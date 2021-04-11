@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "Unit Tests - Testing your Application: MonteCarloIntegrator",
+      "setup": "",
+      "run": "bash -c \"set -o pipefail; mvn -q -B -Dtest=MonteCarloIntegratorTest -Dorg.slf4j.simpleLogger.defaultLogLevel=ERROR test | grep -vF [ERROR]\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 3
+    },
+    {
+      "name": "Unit Tests - Testing your Application: Integration of sin(x) sin(y)",
+      "setup": "",
+      "run": "bash -c \"set -o pipefail; mvn -q -B -Dtest=MonteCarloIntegratonOfSinTimeSinTest -Dorg.slf4j.simpleLogger.defaultLogLevel=ERROR test | grep -vF [ERROR]\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    }
+  ]
+}
