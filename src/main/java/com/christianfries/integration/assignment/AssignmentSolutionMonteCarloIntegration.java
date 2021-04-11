@@ -1,7 +1,5 @@
 package com.christianfries.integration.assignment;
 
-import com.christianfries.integration.examples.MonteCarloIntegrator;
-
 import info.quantlab.numericalmethods.lecture.montecarlo.integration.Integrand;
 import info.quantlab.numericalmethods.lecture.montecarlo.integration.IntegrationDomain;
 import info.quantlab.numericalmethods.lecture.montecarlo.integration.MonteCarloIntegratorFactory;
