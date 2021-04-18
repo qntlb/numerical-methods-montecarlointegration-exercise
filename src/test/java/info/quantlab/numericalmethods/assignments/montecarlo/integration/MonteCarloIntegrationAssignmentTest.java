@@ -31,7 +31,7 @@ public class MonteCarloIntegrationAssignmentTest {
 			}
 		}
 		catch(Exception e) {
-			System.out.println(" Failed with exception " + e.getMessage());
+			System.out.println("\tFailed with exception " + e.getMessage());
 			success = false;
 		}
 
@@ -54,13 +54,11 @@ public class MonteCarloIntegrationAssignmentTest {
 		try {
 			MonteCarloIntegrationAssignment solution = new MonteCarloIntegrationAssignmentSolution();
 
-			for(String testCase : List.of("unit circle", "normal cdf")) {
-				System.out.println("Testing " + solution.getClass().getCanonicalName() + " for getIntegral method" + testCase);
-				success &= MonteCarloIntegrationImplementationChecker.check(new MonteCarloIntegrationAssignmentSolution(), "getIntegral");
-			}
+			System.out.println("Testing " + solution.getClass().getCanonicalName() + " for getIntegral method.");
+			success &= MonteCarloIntegrationImplementationChecker.check(new MonteCarloIntegrationAssignmentSolution(), "getIntegral");
 		}
 		catch(Exception e) {
-			System.out.println(" Failed with exception " + e.getMessage());
+			System.out.println("\tFailed with exception " + e.getMessage());
 			success = false;
 		}
 
