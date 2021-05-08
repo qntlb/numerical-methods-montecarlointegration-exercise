@@ -3,6 +3,7 @@ package info.quantlab.numericalmethods.assignments.montecarlo.integration;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.junit.Test;
 
@@ -32,6 +33,8 @@ public class MonteCarloIntegrationAssignmentTest {
 		}
 		catch(Exception e) {
 			System.out.println("\tFailed with exception " + e.getMessage());
+			// Print only few lines of the stack trace and add some indentation
+			Stream.of(e.getStackTrace()).limit(3).map(s -> "\t\t\tat " + s).forEach(System.out::println);
 			success = false;
 		}
 
@@ -59,6 +62,8 @@ public class MonteCarloIntegrationAssignmentTest {
 		}
 		catch(Exception e) {
 			System.out.println("\tFailed with exception " + e.getMessage());
+			// Print only few lines of the stack trace and add some indentation
+			Stream.of(e.getStackTrace()).limit(3).map(s -> "\t\t\tat " + s).forEach(System.out::println);
 			success = false;
 		}
 
