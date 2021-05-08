@@ -12,6 +12,7 @@ public class MonteCarloIntegrationAssignmentSolution implements MonteCarloIntegr
 	 * 
 	 * @return A class implementing MonteCarloIntegratorFactory
 	 */
+	@Override
 	public MonteCarloIntegratorFactory getMonteCarloIntegratorFactory() {
 		
 		// Replace the following line by a statement return-ing a new instance of your implementation of MonteCarloIntegratorFactory 
@@ -31,6 +32,7 @@ public class MonteCarloIntegrationAssignmentSolution implements MonteCarloIntegr
 	 * @param upperBoundY The upper bound d for the integral of dy.
 	 * @return
 	 */
+	@Override
 	public double getIntegral(DoubleBinaryOperator function, double lowerBoundX, double upperBoundX, double lowerBoundY, double upperBoundY) {
 		
 		// Delete the following line and implement this method returning an integral for the given function and bounds.
