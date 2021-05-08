@@ -24,6 +24,18 @@ of the project `numerical-methods-lecture`, see [github.com/qntlb/numerical-meth
 - `Integrator`
 - `MonteCarloIntegratorFactory`
 
+The MonteCarloIntegratorFactory's method requires a class implementing an `RandomNumberGenerator`. This interface and some classes implementing this interface can be found in the package
+```
+info.quantlab.numericalmethods.lecture.randomnumbers
+```
+
+## Classes
+
+You may use the classes providing random number generators that were developed during the lecture, e.g.,
+
+- `RandomNumberGeneratorFrom1D`
+- `MersenneTwister`
+
 ## Task
 
 The exercise consists of two separate tasks.
@@ -45,6 +57,14 @@ The integration domain will be provided to the integrator's method `integrate` a
 
 - 4) Feel free to create your own UnitTests and JavaDoc documentation.
 
+Suggestion: you may test your integrator with different random number generators, e.g. `MersenneTwister` via
+
+```
+	final long seed = 3141;
+	RandomNumberGenerator randomNumberGenerator = new RandomNumberGeneratorFrom1D(new MersenneTwister(seed), domain.getDimension());
+```
+
+or a `HaltonSequence`.
 
 ### Task 2: Using your MonteCarloIntegrator to calculate the integral of an DoubleBinaryFunction
 
@@ -59,4 +79,10 @@ The integration domain will be provided to the integrator's method `integrate` a
 ## Unit Tests
 
 We encourage you writing your own unit tests.
+
+## Optional Tasks
+
+Can you implement an `Integrator` that implements a multi-dimensional Simpson's rule?
+
+This is not tested in our unit tests.
 
