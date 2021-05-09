@@ -26,7 +26,7 @@ public class MonteCarloIntegrationAssignmentSolution implements MonteCarloIntegr
 	 * using your Monte-Carlo Integrator.
 	 * 
 	 * @param function The function to integrate, given as a {@link DoubleBinaryOperator}.
-	 * @param lowBoundX The lower bound a for the integral of dx.
+	 * @param lowerBoundX The lower bound a for the integral of dx.
 	 * @param upperBoundX The upper bound b for the integral of dx.
 	 * @param lowerBoundY The lower bound c for the integral of dy.
 	 * @param upperBoundY The upper bound d for the integral of dy.
