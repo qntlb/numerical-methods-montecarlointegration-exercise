@@ -66,7 +66,7 @@ Suggestion: you may test your integrator with different random number generators
 
 or a `HaltonSequence`.
 
-### Task 2: Using your MonteCarloIntegrator to calculate the integral of an DoubleBinaryFunction
+### Task 2: Using your MonteCarloIntegrator to calculate the integral of a DoubleBinaryFunction
 
 - 5) Complete the method `getIntegral` of `MonteCarloIntegrationAssignmentSolution`. Use your Monte-Carlo integrator to calculate the integral. 
 
