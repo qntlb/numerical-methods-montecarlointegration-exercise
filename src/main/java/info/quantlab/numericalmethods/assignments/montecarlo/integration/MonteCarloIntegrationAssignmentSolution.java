@@ -30,7 +30,7 @@ public class MonteCarloIntegrationAssignmentSolution implements MonteCarloIntegr
 	 * @param upperBoundX The upper bound b for the integral of dx.
 	 * @param lowerBoundY The lower bound c for the integral of dy.
 	 * @param upperBoundY The upper bound d for the integral of dy.
-	 * @return
+	 * @return The value of the integral f(x,y) dx dy.
 	 */
 	@Override
 	public double getIntegral(DoubleBinaryOperator function, double lowerBoundX, double upperBoundX, double lowerBoundY, double upperBoundY) {
