@@ -2,14 +2,9 @@ package info.quantlab.numericalmethods.assignments.montecarlo.integration;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
-import java.util.List;
-import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
-
-import info.quantlab.numericalmethods.assignments.montecarlo.check.MonteCarloIntegrationAssignment;
 import info.quantlab.numericalmethods.assignments.montecarlo.check.MonteCarloIntegrationImplementationChecker;
-import info.quantlab.numericalmethods.lecture.montecarlo.integration.MonteCarloIntegratorFactory;
 
 /**
  * This class tests the implementation of your class.
@@ -20,62 +15,17 @@ import info.quantlab.numericalmethods.lecture.montecarlo.integration.MonteCarloI
 public class MonteCarloIntegrationAssignmentTest {
 
 	@Test
-	public void testMonteCarloIntegrator() {
-
-		boolean success = true;
-		try {
-			MonteCarloIntegratorFactory integratorFactory = new MonteCarloIntegrationAssignmentSolution().getMonteCarloIntegratorFactory();
-
-			for(String testCase : List.of("unit circle", "normal cdf")) {
-				System.out.println("Testing " + integratorFactory.getClass().getCanonicalName() + " for " + testCase);
-				success &= MonteCarloIntegrationImplementationChecker.check(integratorFactory, testCase);
-			}
-		}
-		catch(Exception e) {
-			System.out.println("\tFailed with exception " + e.getMessage());
-			// Print only few lines of the stack trace and add some indentation
-			Stream.of(e.getStackTrace()).limit(3).map(s -> "\t\t\tat " + s).forEach(System.out::println);
-			success = false;
-		}
-
-		if(!success) {
-			System.out.println("Sorry, the test failed.");
-		}
-		else {
-			System.out.println("Congratulation! You solved this part of the exercise.");
-		}
-
-		System.out.println("_".repeat(79));
-
-		if(!success) fail();
+	void testMonteCarloIntegrator() {
+		if(!MonteCarloIntegrationImplementationChecker.check(new MonteCarloIntegrationAssignmentSolution(), "monte carlo integrator")) fail();
 	}
 
 	@Test
-	public void testIntegralOfDoubleBinaryOperator() {
+	void testIntegralOfDoubleBinaryOperator() {
+		if(!MonteCarloIntegrationImplementationChecker.check(new MonteCarloIntegrationAssignmentSolution(), "monte carlo integrator 2D")) fail();
+	}
 
-		boolean success = true;
-		try {
-			MonteCarloIntegrationAssignment solution = new MonteCarloIntegrationAssignmentSolution();
-
-			System.out.println("Testing " + solution.getClass().getCanonicalName() + " for getIntegral method.");
-			success &= MonteCarloIntegrationImplementationChecker.check(new MonteCarloIntegrationAssignmentSolution(), "getIntegral");
-		}
-		catch(Exception e) {
-			System.out.println("\tFailed with exception " + e.getMessage());
-			// Print only few lines of the stack trace and add some indentation
-			Stream.of(e.getStackTrace()).limit(3).map(s -> "\t\t\tat " + s).forEach(System.out::println);
-			success = false;
-		}
-
-		if(!success) {
-			System.out.println("Sorry, the test failed.");
-		}
-		else {
-			System.out.println("Congratulation! You solved this part of the exercise.");
-		}
-
-		System.out.println("_".repeat(79));
-
-		if(!success) fail();
+	@Test
+	void testSimpsonsIntegrator() {
+		if(!MonteCarloIntegrationImplementationChecker.check(new MonteCarloIntegrationAssignmentSolution(), "simpsons integrator")) fail();
 	}
 }

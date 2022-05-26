@@ -8,7 +8,7 @@
       "output": "",
       "comparison": "included",
       "timeout": 10,
-      "points": 3
+      "points": 4
     },
     {
       "name": "Unit Tests - Testing your Application: Integration of sin(x) sin(y)",
@@ -19,6 +19,16 @@
       "comparison": "included",
       "timeout": 10,
       "points": 2
+    },
+    {
+      "name": "Unit Tests - Testing your Application: SimpsonsIntegrator",
+      "setup": "",
+      "run": "bash -c \"set -o pipefail; mvn -q -B -Dtest=MonteCarloIntegrationAssignmentTest#testSimpsonsIntegrator -Dorg.slf4j.simpleLogger.defaultLogLevel=ERROR test | grep -vF [ERROR]\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 4
     }
   ]
 }

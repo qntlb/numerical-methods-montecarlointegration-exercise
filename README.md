@@ -11,10 +11,12 @@ The framework should be flexible enough to allow
 
 - flexible use for different random number generators
 
-For convenience we provide the interfaces that define the framework. You can find these interface in the package
+For convenience we provide the interfaces that define the framework. You can find these interfacea in the package
+
 ```
 info.quantlab.numericalmethods.lecture.montecarlo.integration
 ```
+
 of the project `numerical-methods-lecture`, see [github.com/qntlb/numerical-methods-lecture](https://github.com/qntlb/numerical-methods-lecture). This project is already defined as a Maven dependency to this project.
 
 ## Interfaces (provided)
@@ -25,13 +27,14 @@ of the project `numerical-methods-lecture`, see [github.com/qntlb/numerical-meth
 - `MonteCarloIntegratorFactory`
 
 The MonteCarloIntegratorFactory's method requires a class implementing an `RandomNumberGenerator`. This interface and some classes implementing this interface can be found in the package
+
 ```
 info.quantlab.numericalmethods.lecture.randomnumbers
 ```
 
 ## Classes
 
-You may use the classes providing random number generators that were developed during the lecture, e.g.,
+You may use the classes providing random number generators that will be or were developed during the lecture, e.g.,
 
 - `RandomNumberGeneratorFrom1D`
 - `MersenneTwister`
