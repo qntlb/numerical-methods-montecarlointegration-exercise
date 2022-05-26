@@ -104,8 +104,8 @@ The integration domain will be provided to the integrator's method `integrate` a
 
 ```
 	int dimension = integrationDomain.getDimension();
-	int numberOfSamplePointsPerDimension = 2 * (int) (Math.ceil(Math.pow(numberOfValuationPoints, 1.0/dimension))/2) + 1;
-	int numberOfSamplePointsEffective = (int) Math.pow(numberOfSamplePointsPerDimension, dimension);
+	int numberOfValuationPointsPerDimension = 2 * (int) (Math.ceil(Math.pow(numberOfValuationPoints, 1.0/dimension))/2) + 1;
+	int numberOfValuationPointsEffective = (int) Math.pow(numberOfValuationPointsPerDimension, dimension);
 ```
 
 - You might realise that you need to think a bit to find a short algorithm to implement the Simpsons integration in arbitrary dimensions. It is possible to create a fairly short implementation if you implement a multi-index `index` - an array of length `dimension` where each entry runs from `0` to `numberOfSamplePointsPerDimension-1`.
