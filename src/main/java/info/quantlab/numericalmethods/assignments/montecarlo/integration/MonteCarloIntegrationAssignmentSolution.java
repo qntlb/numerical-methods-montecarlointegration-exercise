@@ -3,6 +3,7 @@ package info.quantlab.numericalmethods.assignments.montecarlo.integration;
 import java.util.function.DoubleBinaryOperator;
 
 import info.quantlab.numericalmethods.assignments.montecarlo.check.MonteCarloIntegrationAssignment;
+import info.quantlab.numericalmethods.lecture.montecarlo.integration.IntegratorFactory;
 import info.quantlab.numericalmethods.lecture.montecarlo.integration.MonteCarloIntegratorFactory;
 
 public class MonteCarloIntegrationAssignmentSolution implements MonteCarloIntegrationAssignment {
@@ -21,6 +22,7 @@ public class MonteCarloIntegrationAssignmentSolution implements MonteCarloIntegr
 
 	/**
 	 * The solution of the second part of exercise.
+	 * 
 	 * Calculating the integral f(x,y) dx dy for a general binary operator
 	 * using the integration domain [a,b] x [c,d] 
 	 * using your Monte-Carlo Integrator.
@@ -36,6 +38,18 @@ public class MonteCarloIntegrationAssignmentSolution implements MonteCarloIntegr
 	public double getIntegral(DoubleBinaryOperator function, double lowerBoundX, double upperBoundX, double lowerBoundY, double upperBoundY) {
 		
 		// Delete the following line and implement this method returning an integral for the given function and bounds.
+		throw new UnsupportedOperationException("Method not yet implemented.");
+	}
+
+	/**
+	 * The solution of the third part of exercise, implementing a IntegratorFactory providing a SimpsonsIntegrator
+	 * 
+	 * @return A class implementing IntegratorFactory
+	 */
+	@Override
+	public IntegratorFactory getSimpsonsIntegratorFactory() {
+		
+		// Replace the following line by a statement return-ing a new instance of your implementation of MonteCarloIntegratorFactory 
 		throw new UnsupportedOperationException("Method not yet implemented.");
 	}
 }
