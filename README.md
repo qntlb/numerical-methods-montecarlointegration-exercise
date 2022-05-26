@@ -1,17 +1,17 @@
 # numerical-methods-montecarlointegration-exercise
 
-In this exercise you should implement classes that provide a fairly flexible
+In this exercise, you should implement classes that provide a reasonably flexible
 framework for Monte-Carlo integration.
 
 The framework should be flexible enough to allow
 
-- integration of different function f : R^{n} \rightarrow R
+- integration of different function f : <b>R</b><sup>n</sup> &rarr; <b>R</b>
 
-- flexible specification of the integration domains using a transformation from [0,1]^{n} to a subset of R^{n}
+- flexible specification of the integration domains using a transformation from [0,1]<sup>n</sup> to a subset of <b>R</b><sup>n</sup>
 
 - flexible use for different random number generators
 
-For convenience we provide the interfaces that define the framework. You can find these interface in the package
+For convenience, we provide the interfaces that define the framework. You can find these interfaces in the package
 
 ```
 info.quantlab.numericalmethods.lecture.montecarlo.integration
@@ -60,9 +60,9 @@ The function to integrate will be provided to the integrator's method `integrate
 
 The integration domain will be provided to the integrator's method `integrate` as an object implementing the interface `IntegrationDomain`.
 
-- 2) Implement a class implementing the interface `MonteCarloIntegratorFactory` that allows to create an object of the class that you have implemented in 1). Note: the `MonteCarloIntegratorFactory` simply calls the constructor of your class.
+- 2) Implement a class implementing the interface `MonteCarloIntegratorFactory` that allows creating an object of the class that you have implemented in 1). Note: the `MonteCarloIntegratorFactory` simply calls the constructor of your class.
 
-- 3) To allow us to test you implementation, complete the implementation of the method `getMonteCarloIntegratorFactory` of `MonteCarloIntegrationAssignmentSolution`. This allows to create an object of your `MonteCarloIntegratorFactory`. Our unit tests will use this to test your code..
+- 3) To allow us to test you implementation, complete the implementation of the method `getMonteCarloIntegratorFactory` of `MonteCarloIntegrationAssignmentSolution`. This allows the creation of an object of your `MonteCarloIntegratorFactory`. Our unit tests will use this to test your code.
 
 - 4) Feel free to create your own UnitTests and JavaDoc documentation.
 
@@ -90,9 +90,9 @@ The function to integrate will be provided to the integrator's method `integrate
 
 The integration domain will be provided to the integrator's method `integrate` as an object implementing the interface `IntegrationDomain`.
 
-- 7) Implement a class implementing the interface `IntegratorFactory` that allows to create an object of the class that you have implemented in 1). Note: the `IntegratorFactory` simply calls the constructor of your class.
+- 7) Implement a class implementing the interface `IntegratorFactory` that allows creating an object of the class that you have implemented in 1). Note: the `IntegratorFactory` simply calls the constructor of your class.
 
-- 8) To allow us to test you implementation, complete the implementation of the method `getSimpsonsIntegratorFactory` of `MonteCarloIntegrationAssignment`. This allows to create an object of your `IntegratorFactory`. Our unit tests will use this to test your code.
+- 8) To allow us to test you implementation, complete the implementation of the method `getSimpsonsIntegratorFactory` of `MonteCarloIntegrationAssignment`. This allows the creation of an object of your `IntegratorFactory`. Our unit tests will use this to test your code.
 
 - 9) Feel free to create your own UnitTests and JavaDoc documentation.
 
@@ -100,7 +100,7 @@ The integration domain will be provided to the integrator's method `integrate` a
 
 - Note that your Simpsons integral and your Monte-Carlo integral only operator on [0,1]^d (the object implementing the Domain will provide you with the transformation).
 
-- Your Simpsons integrator should accept the `numberOfValuationPoints` as an argument. This should be the *minumum total number of valuation points*. Since the Simpsons has to use an odd number of points in every dimension, you may use the following code to round this number appropriately to `numberOfSamplePointsEffective`, using `numberOfSamplePointsPerDimension` per dimension.
+- Your Simpsons integrator should accept the `numberOfValuationPoints` as an argument. This should be the *minimum total number of valuation points*. Since the Simpsons rule uses an odd number of points in every dimension, you may use the following code to round this number appropriately to `numberOfSamplePointsEffective`, using `numberOfSamplePointsPerDimension` per dimension.
 
 ```
 	int dimension = integrationDomain.getDimension();
@@ -113,11 +113,11 @@ The integration domain will be provided to the integrator's method `integrate` a
 
 ## Unit Tests
 
-We encourage you writing your own unit tests.
+We encourage you to write your own unit tests.
 
 ## Further Research
 
-For those interested, this project offers the opportunity to explore Monte-Carlo integration in more detail.
+This project offers the opportunity to explore Monte-Carlo integration in more detail for those interested.
 Here are a few suggestions:
 
 - *Explore the dependency on the dimension:* Consider the integration of x &rarr; product(i=0,...,d-1) sin(x<sub>i</sub>) for 0 < x<sub>i</sub> < &pi;. The value of the integral is 2^d. This is an d-dimensional integral. For this function, compare the accuracy of Monte-Carlo integration and Simpsons integration with d = 1, 2, 4, 8 using for example n = 5^8 = 390625 sample points.
