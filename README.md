@@ -5,7 +5,7 @@ framework for Monte-Carlo integration.
 
 The framework should be flexible enough to allow
 
-- integration of different function f : <b>R</b><sup>n</sup> &rarr; <b>R</b>
+- integration of different functions f : <b>R</b><sup>n</sup> &rarr; <b>R</b>
 
 - flexible specification of the integration domains using a transformation from [0,1]<sup>n</sup> to a subset of <b>R</b><sup>n</sup>
 
@@ -17,7 +17,7 @@ For convenience, we provide the interfaces that define the framework. You can fi
 info.quantlab.numericalmethods.lecture.montecarlo.integration
 ```
 
-of the project `numerical-methods-lecture`, see [github.com/qntlb/numerical-methods-lecture](https://github.com/qntlb/numerical-methods-lecture). This project is already defined as a Maven dependency to this project.
+of the project `numerical-methods-lecture`, see [github.com/qntlb/numerical-methods-lecture](https://github.com/qntlb/numerical-methods-lecture). This project is already defined as a Maven dependency to this project. This project is pre-configured and "knows" these interfaces.
 
 ## Interfaces (provided)
 
@@ -26,7 +26,7 @@ of the project `numerical-methods-lecture`, see [github.com/qntlb/numerical-meth
 - `Integrator`
 - `MonteCarloIntegratorFactory`
 
-The MonteCarloIntegratorFactory's method requires a class implementing an `RandomNumberGenerator`. This interface and some classes implementing this interface can be found in the package
+The `MonteCarloIntegratorFactory`'s method requires a class implementing a `RandomNumberGenerator`. This interface and some classes implementing this interface can be found in the package
 
 ```
 info.quantlab.numericalmethods.lecture.randomnumbers
