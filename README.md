@@ -75,6 +75,8 @@ Suggestion: you may test your integrator with different random number generators
 
 or a `HaltonSequence`.
 
+Note: As known from the lecture, using a 1-dimensional quasi-random number sequence in a d-dimensional integration will lead to wrong results. Hence, it makes usage of your integrator safer, if you explcitly require that the dimension of the domain matches the dimension of the random number sequence (an throw `IllegalArgumentException` if not), such that the user has to explicitly use `RandomNumberGeneratorFrom1D` when appropriate. You could however allow that an n-dimension sequence is used for a d-dimensional domain if n>d.
+
 ### Task 2: Using your MonteCarloIntegrator to calculate the integral of a DoubleBinaryFunction
 
 - 5) Complete the method `getIntegral` of `MonteCarloIntegrationAssignmentSolution`. Use your Monte-Carlo integrator with approximately 1 million sample points to calculate the integral.
