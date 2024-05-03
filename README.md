@@ -1,7 +1,7 @@
 # numerical-methods-montecarlointegration-exercise
 
 In this exercise, you should implement classes that provide a reasonably flexible
-framework for Monte-Carlo integration.
+framework for Monte-Carlo integration in arbitrary dimensions.
 
 The framework should be flexible enough to allow
 
@@ -26,6 +26,8 @@ of the project `numerical-methods-lecture`, see [github.com/qntlb/numerical-meth
 - `Integrator`
 - `MonteCarloIntegratorFactory`
 
+See [the package info.quantlab.numericalmethods.lecture.montecarlo.integration](https://github.com/qntlb/numerical-methods-lecture/tree/master/src/main/java/info/quantlab/numericalmethods/lecture/montecarlo/integration)
+
 The `MonteCarloIntegratorFactory`'s method requires a class implementing a `RandomNumberGenerator`. This interface and some classes implementing this interface can be found in the package
 
 ```
@@ -34,9 +36,9 @@ info.quantlab.numericalmethods.lecture.randomnumbers
 
 ### Integrand and IntegrationDomain
 
-- Objects implementing `Integrand` provide a function f : A \rightarrow R defined on a domain A.
-- Objects implementing `IntegrationDomain` provide a bijective function g : [0,1]^{n} \rightarrow A that transforms the integration domain and the determinant of the derivative (Jacobi matrix) dg/dx.
-- Objects implementing `Integrator` provide the integral \int_A f(z) dz using substitution z = f(x). 
+- Objects implementing `Integrand` provide a function f : A &rarr; <b>R</b> defined on a domain A &sub; <b>R</b><sup>n</sup>.
+- Objects implementing `IntegrationDomain` provide a bijective function g : [0,1]<sup>n</sup> &rarr; A that transforms the integration domain and the determinant of the derivative (Jacobi matrix) dg/dx.
+- Objects implementing `Integrator` provide the integral &int;<sub>A</sub> f(z) dz using substitution z = f(x). 
 
 ## Classes
 
@@ -100,9 +102,9 @@ The integration domain will be provided to the integrator's method `integrate` a
 
 #### Hints
 
-- Note that your Simpsons integral and your Monte-Carlo integral only operator on [0,1]^d (the object implementing the Domain will provide you with the transformation).
+- Note that your Simpson's integral and your Monte-Carlo integral only operator on [0,1]^d (the object implementing the Domain will provide you with the transformation).
 
-- Your Simpsons integrator should accept the `numberOfValuationPoints` as an argument. This should be the *minimum total number of valuation points*. Since the Simpsons rule uses an odd number of points in every dimension, you may use the following code to round this number appropriately to `numberOfSamplePointsEffective`, using `numberOfSamplePointsPerDimension` per dimension.
+- Your Simpson's integrator should accept the `numberOfValuationPoints` as an argument. This should be the *minimum total number of valuation points*. Since the Simpsons rule uses an odd number of points in every dimension, you may use the following code to round this number appropriately to `numberOfSamplePointsEffective`, using `numberOfSamplePointsPerDimension` per dimension.
 
 ```
 	int dimension = integrationDomain.getDimension();
@@ -112,6 +114,11 @@ The integration domain will be provided to the integrator's method `integrate` a
 
 - You might realise that you need to think a bit to find a short algorithm to implement the Simpsons integration in arbitrary dimensions. It is possible to create a fairly short implementation if you implement a multi-index `index` - an array of length `dimension` where each entry runs from `0` to `numberOfSamplePointsPerDimension-1`.
 
+### Task 4 (optional): Use your MonteCarloIntegrator with an RandomNumberGenerator generating a low-discrepancy in d dimensions.
+
+Since the random number generator is an input to your implementation of the MonteCarloIntegrator interface, it should be possible to feed in low discrepancy sequences (given that they implement the `RandomNumberGeneratorRandomNumberGenerator` interface).
+
+Conduct a an experiment using low discrepancy sequence to perform the Monte-Carlo integration and compare the integration error to that of using a pseudo random number sequence.
 
 ## Unit Tests
 
