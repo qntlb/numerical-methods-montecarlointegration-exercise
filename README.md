@@ -38,7 +38,7 @@ info.quantlab.numericalmethods.lecture.randomnumbers
 
 - Objects implementing `Integrand` provide a function f : A &rarr; <b>R</b> defined on a domain A &sub; <b>R</b><sup>n</sup>.
 - Objects implementing `IntegrationDomain` provide a bijective function g : [0,1]<sup>n</sup> &rarr; A that transforms the integration domain and the determinant of the derivative (Jacobi matrix) dg/dx.
-- Objects implementing `Integrator` provide the integral &int;<sub>A</sub> f(z) dz using substitution z = f(x). 
+- Objects implementing `Integrator` provide the integral &int;<sub>A</sub> f(z) dz using substitution z = g(x). 
 
 ## Classes
 
