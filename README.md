@@ -60,15 +60,15 @@ arbitrary functions on general domains.
 
 The function to integrate will be provided to the integrator's method `integrate` as an object implementing the interface `Integrand`.
 
-The integration domain will be provided to the integrator's method `integrate` as an object implementing the interface `IntegrationDomain`.
+The integration domain will be provided to the `Integrator`'s method `integrate` as an object implementing the interface `IntegrationDomain`.
 
 - 2) Implement a class implementing the interface `MonteCarloIntegratorFactory` that allows creating an object of the class that you have implemented in 1). Note: the `MonteCarloIntegratorFactory` simply calls the constructor of your class.
 
-- 3) To allow us to test you implementation, complete the implementation of the method `getMonteCarloIntegratorFactory` of `MonteCarloIntegrationAssignmentSolution`. This allows the creation of an object of your `MonteCarloIntegratorFactory`. Our unit tests will use this to test your code.
+- 3) To allow us to test your implementation, complete the implementation of the method `getMonteCarloIntegratorFactory` of `MonteCarloIntegrationAssignmentSolution`. This allows the creation of an object of your `MonteCarloIntegratorFactory`. Our unit tests will use this to test your code.
 
 - 4) Feel free to create your own UnitTests and JavaDoc documentation.
 
-Suggestion: you may test your integrator with different random number generators, e.g. `MersenneTwister` via
+Suggestion: You may test your `Integrator` implementation with different random number generators, e.g. `MersenneTwister` via
 
 ```
 	final long seed = 3141;
@@ -77,7 +77,7 @@ Suggestion: you may test your integrator with different random number generators
 
 or a `HaltonSequence`.
 
-Note: As known from the lecture, using a 1-dimensional quasi-random number sequence in a d-dimensional integration will lead to wrong results. Hence, it makes usage of your integrator safer, if you explcitly require that the dimension of the domain matches the dimension of the random number sequence (an throw `IllegalArgumentException` if not), such that the user has to explicitly use `RandomNumberGeneratorFrom1D` when appropriate. You could however allow that an n-dimension sequence is used for a d-dimensional domain if n>d.
+Note: As known from the lecture, using a 1-dimensional quasi-random number sequence in a d-dimensional integration will lead to wrong results. Hence, it makes usage of your integrator safer, if you explicitly require that the dimension of the domain matches the dimension of the random number sequence (an throw `IllegalArgumentException` if not), such that the user has to explicitly use `RandomNumberGeneratorFrom1D` when appropriate. You could however allow that an n-dimension sequence is used for a d-dimensional domain if n>d.
 
 ### Task 2: Using your MonteCarloIntegrator to calculate the integral of a DoubleBinaryFunction
 
@@ -104,7 +104,7 @@ The integration domain will be provided to the integrator's method `integrate` a
 
 - Note that your Simpson's integral and your Monte-Carlo integral only operator on [0,1]^d (the object implementing the Domain will provide you with the transformation).
 
-- Your Simpson's integrator should accept the `numberOfValuationPoints` as an argument. This should be the *minimum total number of valuation points*. Since the Simpsons rule uses an odd number of points in every dimension, you may use the following code to round this number appropriately to `numberOfSamplePointsEffective`, using `numberOfSamplePointsPerDimension` per dimension.
+- Your Simpson's integrator should accept the `numberOfValuationPoints` as an argument. This should be the *minimum total number of valuation points*. Since the Simpson's rule uses an odd number of points in every dimension, you may use the following code to round this number appropriately to `numberOfSamplePointsEffective`, using `numberOfSamplePointsPerDimension` per dimension.
 
 ```
 	int dimension = integrationDomain.getDimension();
@@ -112,7 +112,7 @@ The integration domain will be provided to the integrator's method `integrate` a
 	int numberOfValuationPointsEffective = (int) Math.pow(numberOfValuationPointsPerDimension, dimension);
 ```
 
-- You might realise that you need to think a bit to find a short algorithm to implement the Simpsons integration in arbitrary dimensions. It is possible to create a fairly short implementation if you implement a multi-index `index` - an array of length `dimension` where each entry runs from `0` to `numberOfSamplePointsPerDimension-1`.
+- You might realise that you need to think a bit to find a short algorithm to implement the Simpson's integration in arbitrary dimensions. It is possible to create a fairly short implementation if you implement a multi-index `index` - an array of length `dimension` where each entry runs from `0` to `numberOfSamplePointsPerDimension-1`.
 
 ### Task 4 (optional): Use your MonteCarloIntegrator with an RandomNumberGenerator generating a low-discrepancy in d dimensions.
 
@@ -129,6 +129,6 @@ We encourage you to write your own unit tests.
 This project offers the opportunity to explore Monte-Carlo integration in more detail for those interested.
 Here are a few suggestions:
 
-- *Explore the dependency on the dimension:* Consider the integration of x &rarr; product(i=0,...,d-1) sin(x<sub>i</sub>) for 0 < x<sub>i</sub> < &pi;. The value of the integral is 2^d. This is an d-dimensional integral. For this function, compare the accuracy of Monte-Carlo integration and Simpsons integration with d = 1, 2, 4, 8 using for example n = 5^8 = 390625 sample points.
+- *Explore the dependency on the dimension:* Consider the integration of x &rarr; product(i=0,...,d-1) sin(x<sub>i</sub>) for 0 < x<sub>i</sub> < &pi;. The value of the integral is 2^d. This is an d-dimensional integral. For this function, compare the accuracy of Monte-Carlo integration and Simpson's integration with d = 1, 2, 4, 8 using for example n = 5^8 = 390625 sample points.
 
-- *Explore the dependency on the smoothness of the function:* Consider the integration of (x<sub>0</sub>,x<sub>1</sub>) &rarr; x<sub>0</sub><sup>2</sup> + x<sub>1</sub><sup>2</sup> &lt; 1.0 ? 1.0 : 0.0 for 0 < x<sub>i</sub> < 1. The analytic value of this integral &pi;. For this function, compare the accuracy of Monte-Carlo integration and Simpsons integration using n = 101^2 = 10201 sample points.
+- *Explore the dependency on the smoothness of the function:* Consider the integration of (x<sub>0</sub>,x<sub>1</sub>) &rarr; x<sub>0</sub><sup>2</sup> + x<sub>1</sub><sup>2</sup> &lt; 1.0 ? 1.0 : 0.0 for 0 < x<sub>i</sub> < 1. The analytic value of this integral &pi;. For this function, compare the accuracy of Monte-Carlo integration and Simpson's integration using n = 101^2 = 10201 sample points.
