@@ -94,7 +94,7 @@ The function to integrate will be provided to the integrator's method `integrate
 
 The integration domain will be provided to the integrator's method `integrate` as an object implementing the interface `IntegrationDomain`.
 
-- 7) Implement a class implementing the interface `IntegratorFactory` that allows creating an object of the class that you have implemented in 1). Note: the `IntegratorFactory` simply calls the constructor of your class.
+- 7) Implement a class implementing the interface `IntegratorFactory` that allows creating an object of the class that you have implemented in 6). Note: the `IntegratorFactory` simply calls the constructor of your class.
 
 - 8) To allow us to test you implementation, complete the implementation of the method `getSimpsonsIntegratorFactory` of `MonteCarloIntegrationAssignment`. This allows the creation of an object of your `IntegratorFactory`. Our unit tests will use this to test your code.
 
