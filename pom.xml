@@ -165,7 +165,7 @@
 		 -->
 		<repository>
 			<id>lecture-maven-repo</id>
-			<url>https://raw.githubusercontent.com/qntlb/numerical-methods-lecture/master/local-maven-repo</url>
+			<url>https://raw.githubusercontent.com/qntlb/numerical-methods-lecture/main/local-maven-repo</url>
 		</repository>
 	</repositories>
 
